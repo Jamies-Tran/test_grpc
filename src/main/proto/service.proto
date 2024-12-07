@@ -1,0 +1,8 @@
+syntax = "proto3";
+package src.main.proto;
+
+import "test_model.proto";
+
+service GreetingWorld {
+  rpc greet(Model) returns (Result) {}
+}

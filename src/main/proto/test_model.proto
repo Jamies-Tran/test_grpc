@@ -1,0 +1,10 @@
+syntax = "proto3";
+package src.main.proto;
+
+message Model {
+  string name = 1;
+}
+
+message Result {
+  string result = 1;
+}
