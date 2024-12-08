@@ -17,8 +17,8 @@ public class DemoApplication {
 
 
 	public static void main(String[] args) throws IOException {
-
-		Server server = ServerBuilder.forPort(Integer.parseInt(System.getenv("PORT")))
+		int port = Integer.parseInt(System.getenv("PORT"));
+		Server server = ServerBuilder.forPort(port)
 				.addService(new Greeting())
 				.build();
 		server.start();
