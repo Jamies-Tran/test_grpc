@@ -22,8 +22,8 @@ public class DemoApplication {
 		int port = Integer.parseInt(System.getenv("PORT"));
 		Server server = NettyServerBuilder.forPort(port)
 				.addService(new Greeting())
-				.build();
-		server.start();
+				.build()
+				.start();
 		log.info("Starting server at: {}", server.getPort());
 		server.awaitTermination();
 	}
