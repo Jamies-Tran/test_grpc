@@ -19,7 +19,7 @@ public class DemoApplication {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		SpringApplication.run(DemoApplication.class, args);
 
-		int port = 1025;
+		int port = 6565;
 		Server server = NettyServerBuilder.forPort(port)
 				.addService(new Greeting())
 				.build()
