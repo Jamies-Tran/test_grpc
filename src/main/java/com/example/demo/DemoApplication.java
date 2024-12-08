@@ -17,7 +17,7 @@ public class DemoApplication {
 
 
 	public static void main(String[] args) throws IOException {
-		int port = Integer.parseInt(System.getenv("PORT"));
+		int port = 443;
 		Server server = ServerBuilder.forPort(port)
 				.addService(new Greeting())
 				.build();
