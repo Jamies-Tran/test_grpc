@@ -13,9 +13,12 @@ import java.io.IOException;
 @SpringBootApplication
 public class DemoApplication {
 
+
+
+
 	public static void main(String[] args) throws IOException {
 
-		Server server = ServerBuilder.forPort(9090)
+		Server server = ServerBuilder.forPort(Integer.parseInt(System.getenv("PORT")))
 				.addService(new Greeting())
 				.build();
 		server.start();
