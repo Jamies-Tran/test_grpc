@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.example.demo.service.Greeting;
 import io.grpc.Server;
-import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,16 +16,16 @@ public class DemoApplication {
 
 
 
-	public static void main(String[] args) throws IOException {
-		int port = 443;
-		Server server = ServerBuilder.forPort(port)
+	public static void main(String[] args) throws IOException, InterruptedException {
+		SpringApplication.run(DemoApplication.class, args);
+
+		int port = Integer.parseInt(System.getenv("PORT"));
+		Server server = NettyServerBuilder.forPort(port)
 				.addService(new Greeting())
 				.build();
 		server.start();
 		log.info("Starting server at: {}", server.getPort());
-
-		SpringApplication.run(DemoApplication.class, args);
-
+		server.awaitTermination();
 	}
 
 }
